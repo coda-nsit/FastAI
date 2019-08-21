@@ -1,8 +1,11 @@
 from sklearn import metrics
-from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor
+from sklearn.ensemble import ExtraTreesRegressor
 import pandas as pd
 import numpy as np
 
+########################################
+# ExtraTreesRegressor: rather than trying every variable, try few splits with few variables thus reducing correlation between the individual trees
+########################################
 
 from BlueBookForBullDozers.utilities import proc_df, split_vals, print_score, draw_tree, plt, set_rf_samples
 
@@ -14,7 +17,7 @@ df_raw = pd.read_feather("tmp/raw")
 # m = RandomForestRegressor(n_jobs=-1, n_estimators=1, max_depth=3, bootstrap=False)
 # min_samples_leaf = stop when number of samples in a leaf becomes <=3
 # max_features = only use half of the columns at every spilt
-m = RandomForestRegressor(n_jobs=-1, n_estimators=40, min_samples_leaf=3, max_features=0.5, oob_score=True)
+m = ExtraTreesRegressor(n_jobs=-1, n_estimators=40, min_samples_leaf=3, max_features=0.5, oob_score=False)
 
 # replace categorical variables by their numeric codes, handle missing values and separate out SalePrice
 df, y, _ = proc_df(df_raw, y_fld="SalePrice")
