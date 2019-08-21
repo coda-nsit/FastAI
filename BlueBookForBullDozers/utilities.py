@@ -1,3 +1,5 @@
+import IPython
+import graphviz as graphviz
 from IPython.core.display import display
 from sklearn_pandas import DataFrameMapper
 from sklearn.preprocessing import LabelEncoder, Imputer, StandardScaler
@@ -401,7 +403,7 @@ def set_rf_samples(n):
     n random rows.
     """
     forest._generate_sample_indices = (lambda rs, n_samples:
-        forest.check_random_state(rs).randint(0, n_samples, n))
+                                       forest.check_random_state(rs).randint(0, n_samples, n))
 
 
 def reset_rf_samples():
@@ -432,6 +434,7 @@ def print_score(random_forest_model, x_train, y_train, x_valid, y_valid):
     ]
     if hasattr(random_forest_model, 'oob_score_'):
         res.append(random_forest_model.oob_score_)
+    print("[rmse_train, rmse_validation, r^2_train, r^2_validation, oob_score]")
     print(res)
 
 
