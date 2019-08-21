@@ -1,0 +1,8 @@
+venv
+.idea
+.DS_Store
+*.pyc
+
+# data files
+tmp
+bluebook-for-bulldozers

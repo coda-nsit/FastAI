@@ -1,0 +1,5 @@
+1.  use
+    > pip3 install -r requirements.txt
+    otherwise, it will install for python2 and installations will fail
+
+2.
