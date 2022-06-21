@@ -1,7 +1,7 @@
 # kaggle-cli
 fastai==1.0.57
 pandas-summary==0.0.7
-numpy==1.17.0
+numpy==1.22.0
 pandas==0.25.0
 ipython==7.7.0
 sklearn==0.0
